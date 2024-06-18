@@ -1,0 +1,82 @@
+<!-- <div class="container">
+  <h2>All Products</h2>
+  <div *ngIf="products.length === 0">
+    No products available.
+  </div>
+  <div *ngIf="products.length > 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Picture URL</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td><img [src]="product.pictureUrl" alt="{{ product.name }}" style="width: 100px; height: auto;"></td>
+          <td>{{ product.username }}</td>
+          <td>
+            <button class="delete-product-btn" (click)="deleteProduct(product.id)">
+              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" alt="">
+            </button>
+          </td>
+          <td>
+            <button class="update-product-btn" (click)="openUpdateDialog(product)">
+              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/2546/2546743.png" alt="">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <h2>All Products</h2>
+  <!-- Поле ввода для поиска -->
+  <input type="text" [(ngModel)]="searchText" (input)="applyFilter()" placeholder="Search products..." class="search-input">
+  <div *ngIf="filteredProducts.length === 0">
+    No products available.
+  </div>
+  <div *ngIf="filteredProducts.length > 0">
+    <table class="table table-striped">
+      <!-- Заголовки таблицы -->
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Picture URL</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Отображение продуктов -->
+        <tr *ngFor="let product of filteredProducts">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td><img class="admin-products-img" [src]="product.pictureUrl" alt="{{ product.name }}" style="width: 100px; height: auto;"></td>
+          <td>{{ product.username }}</td>
+          <td>
+            <button class="delete-product-btn" (click)="deleteProduct(product.id)">
+              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" alt="">
+            </button>
+          </td>
+          <td>
+            <button class="update-product-btn" (click)="openUpdateDialog(product)">
+              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/2546/2546743.png" alt="">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

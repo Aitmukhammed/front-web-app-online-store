@@ -1,0 +1,38 @@
+/* Стили для блока приветствия */
+.welcome-block {
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+}
+
+/* Стили для заголовка */
+.welcome-title {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Стили для информации о пользователе */
+.user-info {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Стили для кнопки */
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #495057;
+}

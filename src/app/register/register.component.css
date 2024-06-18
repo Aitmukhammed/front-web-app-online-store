@@ -1,0 +1,63 @@
+/* Стили для контейнера формы */
+.form-container {
+  max-width: 350px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка формы */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Стили для текстовых полей */
+.form-control {
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Стили для кнопки */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Стили для сообщения об ошибке */
+.alert {
+  margin-top: 15px;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  color: #a94442;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Стили для сообщения об успешной регистрации */
+.success-message {
+  margin-top: 15px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 10px;
+  border-radius: 5px;
+}
