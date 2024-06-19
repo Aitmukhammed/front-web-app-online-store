@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
 
   roles?: string[];
   authority?: string;
+  showPhoneContainer: boolean = false;
 
   constructor(private router: Router, private tokenStorage: TokenStorageService) { }
 
@@ -21,8 +22,6 @@ export class AppComponent implements OnInit {
 
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
-          // debugger
-          // this.router.navigate(['/admin']);
           return false;
         } else if (role === 'ROLE_PM') {
           this.authority = 'pm';

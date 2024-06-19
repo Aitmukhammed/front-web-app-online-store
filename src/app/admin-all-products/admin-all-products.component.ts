@@ -73,20 +73,38 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/ProductService';
 import { ProductDetails } from '../details/product-details.interface';
-import { error } from 'console';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateProductDialogComponent } from '../update-product-dialog/update-product-dialog.component';
 
+import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+
+interface Animal {
+  name: string;
+  sound: string;
+}
 
 @Component({
   selector: 'app-admin-all-products',
   templateUrl: './admin-all-products.component.html',
-  styleUrls: ['./admin-all-products.component.css']
+  styleUrls: ['./admin-all-products.component.css'],
+
 })
 export class AdminAllProductsComponent implements OnInit {
   products: ProductDetails[] = [];
   filteredProducts: ProductDetails[] = [];
   searchText: string = '';
+
+  animalControl = new FormControl<Animal | null>(null, Validators.required);
+  selectFormControl = new FormControl('', Validators.required);
+  animals: Animal[] = [
+    {name: 'Dog', sound: 'Woof!'},
+    {name: 'Cat', sound: 'Meow!'},
+    {name: 'Cow', sound: 'Moo!'},
+    {name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!'},
+  ];
 
   constructor(private productService: ProductService, public dialog: MatDialog) { }
 

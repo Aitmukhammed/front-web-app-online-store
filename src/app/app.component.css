@@ -38,16 +38,145 @@
   text-decoration: none;
 }
 
-body {
-  margin: 0;
-}
-
 .phone-navbar-inverse {
   display: none;
 }
 
-@media (max-width: 740px) {
+@media (max-width: 768px) {
   .phone-navbar-inverse {
     display: block;
   }
+  .navbar-inverse {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-inverse {
+    display: block;
+  }
+  .navbar-nav-phone {
+    display: none;
+  }
+}
+
+.btn-menu {
+  display: flex;
+  cursor: pointer;
+  margin-left: 10px;
+  border: 2px solid #FFFFFF;
+  width: 41px;
+  height: 40px;
+  padding: 0px 0px 0px 5px;
+  border-radius: 50%;
+}
+
+.line-top {
+  border: 1px solid #FFFFFF;
+  height: 20px;
+  width: 1px;
+  transform: translate(14px, 8px) rotate(41deg);
+}
+.not-line-top {
+  border: 1px solid #FFFFFF;
+  height: 20px;
+  width: 1px;
+  transform: translate(14px, 0px) rotate(90deg);
+}
+
+.line-between {
+  border: 1px solid #FFFFFF;
+  height: 20px;
+  width: 1px;
+  transform: translate(14px, 9px) rotate(41deg);
+  display: none;
+}
+.not-line-between {
+  border: 1px solid #FFFFFF;
+  height: 20px;
+  width: 1px;
+  transform: translate(12.5px, 9px) rotate(-90deg);
+}
+
+.line-bottom {
+  border: 1px solid #FFFFFF;
+  height: 20px;
+  width: 1px;
+  transform: translate(13px, 8px) rotate(-43deg);
+}
+.not-line-bottom {
+  border: 1px solid #FFFFFF;
+  height: 20px;
+  width: 1px;
+  transform: translate(11px, 18px) rotate(-91deg);
+}
+
+.navbar-nav-phone li a {
+  text-decoration: none;
+  color: #343a40;
+}
+
+.navbar-nav-phone li {
+  border-left: none;
+  border-right: none;
+  padding: 10px;
+}
+
+.navbar-nav-phone li:nth-child(1) {
+  border-bottom: 1px solid #343a40;
+}
+.navbar-nav-phone li:nth-child(2) {
+  border-bottom: 1px solid #343a40;
+}
+
+.navbar-nav-phone li:active {
+  background-color: #343a40;
+  color: #FFFFFF;
+}
+
+.navbar-nav-phone li a:active {
+  color: #FFFFFF;
+}
+
+.navbar-nav-phone {
+  position: fixed;
+  list-style-type: none;
+  border-top: none;
+  border: 1px solid #343a40;
+  background: #FFFFFF;
+  padding-left: inherit;
+  width: 250px;
+}
+
+.navbar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.line-top,
+.line-between,
+.line-bottom {
+  transition: all 0.3s ease-in-out;
+}
+
+.not-line-top,
+.not-line-between,
+.not-line-bottom {
+  transition: all 0.3s ease-in-out;
+}
+
+.phone-container {
+  display: block;
+  transition: all 0.9s ease-in-out;
+}
+
+.not-phone-container {
+  display: none;
+  transition: all 0.9s ease-in-out;
 }

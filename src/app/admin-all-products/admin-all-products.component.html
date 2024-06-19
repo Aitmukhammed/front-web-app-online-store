@@ -1,53 +1,14 @@
-<!-- <div class="container">
-  <h2>All Products</h2>
-  <div *ngIf="products.length === 0">
-    No products available.
-  </div>
-  <div *ngIf="products.length > 0">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Picture URL</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price }}</td>
-          <td><img [src]="product.pictureUrl" alt="{{ product.name }}" style="width: 100px; height: auto;"></td>
-          <td>{{ product.username }}</td>
-          <td>
-            <button class="delete-product-btn" (click)="deleteProduct(product.id)">
-              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" alt="">
-            </button>
-          </td>
-          <td>
-            <button class="update-product-btn" (click)="openUpdateDialog(product)">
-              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/2546/2546743.png" alt="">
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div> -->
-
-
 <div class="container">
   <h2>All Products</h2>
-  <!-- Поле ввода для поиска -->
   <input type="text" [(ngModel)]="searchText" (input)="applyFilter()" placeholder="Search products..." class="search-input">
+
+
+
   <div *ngIf="filteredProducts.length === 0">
     No products available.
   </div>
   <div *ngIf="filteredProducts.length > 0">
     <table class="table table-striped">
-      <!-- Заголовки таблицы -->
       <thead>
         <tr>
           <th>ID</th>
@@ -58,7 +19,6 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Отображение продуктов -->
         <tr *ngFor="let product of filteredProducts">
           <td>{{ product.id }}</td>
           <td>{{ product.name }}</td>
@@ -80,3 +40,20 @@
     </table>
   </div>
 </div>
+
+
+<h4>mat select</h4>
+<mat-form-field>
+  <mat-label>Favorite animal</mat-label>
+  <mat-select [formControl]="animalControl" required>
+    <mat-option>--</mat-option>
+    @for (animal of animals; track animal) {
+      <mat-option [value]="animal">{{animal.name}}</mat-option>
+    }
+  </mat-select>
+  @if (animalControl.hasError('required')) {
+    <mat-error>Please choose an animal</mat-error>
+  }
+  <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+</mat-form-field>
+

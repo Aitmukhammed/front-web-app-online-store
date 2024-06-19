@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { ModComponent } from './mod/mod.component';
 import { AdminComponent } from './admin/admin.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { ProductFormComponent } from './product-form/product-form.component';
@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MainHomeComponent } from './main-home/main-home.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ProductFormComponent,
     AddProductDialogComponent,
     AdminAllProductsComponent,
-    UpdateProductDialogComponent
+    UpdateProductDialogComponent,
+    MainHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [
     provideClientHydration(),
