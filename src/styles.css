@@ -6,3 +6,23 @@ body {
   padding: 0;
   height: 100%;
 }
+
+.cdk-overlay-connected-position-bounding-box {
+  display: flex !important;
+  justify-content: center !important;
+  background-color: #ffffff !important;
+  position: relative;
+  z-index: 999 !important;
+}
+
+mat-option:hover {
+  background: aliceblue !important;
+}
+
+.mdc-floating-label {
+  padding-top: 10px;
+}
+
+.mdc-floating-label {
+  padding-top: 15px !important;
+}

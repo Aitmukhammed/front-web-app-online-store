@@ -75,15 +75,19 @@ import { ProductService } from '../service/ProductService';
 import { ProductDetails } from '../details/product-details.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateProductDialogComponent } from '../update-product-dialog/update-product-dialog.component';
-
+import { catchError, timeout  } from 'rxjs/operators';
 import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { error } from 'console';
+import { CategoryDetails } from '../details/category-details.interface';
+import { of } from 'rxjs';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
-interface Animal {
-  name: string;
-  sound: string;
+interface Food {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -95,22 +99,30 @@ interface Animal {
 export class AdminAllProductsComponent implements OnInit {
   products: ProductDetails[] = [];
   filteredProducts: ProductDetails[] = [];
+  errorMessage: string = '';
+  categories: CategoryDetails[] = [];
+  filteredCategories: CategoryDetails[] = [];
+
   searchText: string = '';
 
-  animalControl = new FormControl<Animal | null>(null, Validators.required);
-  selectFormControl = new FormControl('', Validators.required);
-  animals: Animal[] = [
-    {name: 'Dog', sound: 'Woof!'},
-    {name: 'Cat', sound: 'Meow!'},
-    {name: 'Cow', sound: 'Moo!'},
-    {name: 'Fox', sound: 'Wa-pa-pa-pa-pa-pa-pow!'},
+  selectedValue?: string;
+  selectedCar?: string;
+
+  showHeader?: boolean = true;
+
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
   ];
 
-  constructor(private productService: ProductService, public dialog: MatDialog) { }
+  constructor(private productService: ProductService, public dialog: MatDialog, private overlayContainer: OverlayContainer) { }
 
-  ngOnInit(): void {
-    this.getAllProducts();
-  }
+    ngOnInit(): void {
+      this.getAllProducts();
+      this.getAllCategories();
+      this.overlayContainer.getContainerElement().classList.add('custom-overlay-container');
+    }
 
   getAllProducts(): void {
     this.productService.getAllProducts()
@@ -123,6 +135,47 @@ export class AdminAllProductsComponent implements OnInit {
           console.error('Error fetching products: ', error)
         }
       );
+  }
+
+  getAllCategories(): void {
+    this.productService.getAllCategoris()
+      .subscribe(
+        (categories: CategoryDetails[]) => {
+          this.categories = categories;
+          this.applyFilterCategories()
+        }
+      )
+  }
+
+  applyFilterCategories(): void {
+    if (!this.searchText.trim()) {
+      this.filteredCategories = this.categories;
+      return;
+    }
+    this.filteredCategories = this.categories.filter(product =>
+      product.name.toLowerCase().includes(this.searchText.trim().toLowerCase())
+    );
+  }
+
+  // getCategoriesProducts(categoryName: any): void {
+  getCategoriesProducts(name: any): void {
+    this.productService.getCategoryProducts(name)
+    .subscribe(
+      (products: ProductDetails[]) => {
+        this.products = products;
+        if(name === "Все продукты") {
+          this.showHeader = true;
+          this.getAllProducts();
+          return
+        } else {
+          this.showHeader = false;
+        }
+        this.applyFilter();
+      },
+      error => {
+        console.error('Error fetching categories products: ', error)
+      }
+    )
   }
 
   deleteProduct(productId: number): void {

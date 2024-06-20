@@ -60,3 +60,20 @@ button {
   border-radius: 5px;
 }
 
+mat-form-field {
+  width: 100%;
+}
+
+.header-all-products {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  position: absolute !important;
+}
+
+.search-input {
+  border: 1px solid #555;
+  border-radius: 5px;
+}
