@@ -4,6 +4,7 @@ import { TokenStorageService } from '../auth/token-storage.service';
 import { AuthLoginInfo } from '../auth/login-info';
 
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   private loginInfo?: AuthLoginInfo;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private appComponent: AppComponent) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -44,8 +45,10 @@ export class LoginComponent implements OnInit {
 
         if (this.roles[0] === "ROLE_USER") {
           this.router.navigate(['/user']);
+          this.appComponent.ngOnInit();
         } else if (this.roles[0] === "ROLE_ADMIN") {
           this.router.navigate(['/admin']);
+          this.appComponent.ngOnInit();
         }
         // this.router.navigate(['/main']); // перенаправляем на страницу /main
       },

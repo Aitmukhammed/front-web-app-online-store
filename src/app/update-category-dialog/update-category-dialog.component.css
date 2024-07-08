@@ -1,0 +1,43 @@
+/* Стили для диалогового окна */
+.update-product-dialog {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 300px;
+  width: 100%;
+  z-index: 1000; /* должно быть выше, чем фон */
+}
+
+/* Стили для контента диалогового окна */
+.mat-dialog-content {
+  width: 100%; /* Ширина контента */
+}
+
+/* Стили для кнопок в диалоговом окне */
+.mat-dialog-actions {
+  width: 100%; /* Ширина кнопок */
+  display: flex;
+  justify-content: flex-end; /* Кнопки выравниваются справа */
+  margin-top: 20px; /* Верхний отступ кнопок */
+}
+
+/* Опциональные стили для кнопок */
+.mat-dialog-actions button {
+  margin-left: 10px; /* Отступ между кнопками */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; /* должно быть ниже, чем модальное окно */
+}

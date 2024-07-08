@@ -8,16 +8,6 @@
   <button class="btn btn-secondary" (click)="logout()">Logout</button>
 </div> -->
 <div *ngIf="info.token; else loggedOut" class="dashboard-container">
-  <div class="sidebar">
-    <ul class="sidebar-nav">
-      <li><a routerLink="/dashboard" class="active">My dashboard</a></li>
-      <li><a routerLink="/accounts">Accounts</a></li>
-      <li><a routerLink="/mobile">Mobile</a></li>
-      <li><a routerLink="/payments">Payments</a></li>
-      <li><a routerLink="/complaints">Complaints</a></li>
-      <li><a routerLink="/support">Support</a></li>
-    </ul>
-  </div>
 
   <div class="main-content">
     <header class="dashboard-header">
@@ -42,28 +32,10 @@
           <button class="btn btn-secondary logout-btn" (click)="logout()">Logout</button>
         </div>
       </div>
-
-      <div class="account-card">
-        <h3>My xPay accounts</h3>
-        <ul>
-          <li>Active account: <span>xxxx-xxxx-xxxx-1234</span> <button class="btn btn-success">Reset Account</button></li>
-          <li>Blocked account: <span>xxxx-xxxx-xxxx-5678</span> <button class="btn btn-danger">Unlock Account</button></li>
-        </ul>
-      </div>
-
-      <div class="bills-card">
-        <h3>My bills</h3>
-        <ul>
-          <li>Phone bill <span class="status paid">Paid</span></li>
-          <li>Internet bill <span class="status due">Due</span></li>
-          <li>House rent <span class="status paid">Paid</span></li>
-          <li>Income tax <span class="status overdue">Overdue</span></li>
-        </ul>
-      </div>
     </div>
   </div>
 </div>
 <ng-template #loggedOut>
-  <app-main-home></app-main-home>
+  <!-- <app-main-home></app-main-home> -->
   <!-- <div>Please login.</div> -->
 </ng-template>

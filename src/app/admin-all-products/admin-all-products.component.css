@@ -1,15 +1,20 @@
+.form-categories {
+  margin-top: 10px;
+}
+
 .delete-product-btn, .update-product-btn {
   border: none;
+  background: none;
   border-radius: 5px;
 }
 
-.delete-img {
+.delete-img, .update-img {
   width: 45px;
   height: 45px;
 }
 
 .container {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* Стиль для затемнения фона */
@@ -77,3 +82,16 @@ mat-form-field {
   border: 1px solid #555;
   border-radius: 5px;
 }
+
+.header-all-products {
+  width: 100%;
+  display: contents;
+}
+
+.table-container-products {
+  margin-top: 20px;
+}
+
+
+
+

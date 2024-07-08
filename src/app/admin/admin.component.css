@@ -39,3 +39,41 @@
     transform: translateY(0);
   }
 }
+
+
+/* Стилизация select */
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  appearance: none; /* Убирает стандартные стрелки в некоторых браузерах */
+  -webkit-appearance: none; /* Для WebKit браузеров */
+  -moz-appearance: none; /* Для Firefox */
+
+  /* Добавляем кастомные стрелки */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23444" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: center;
+}
+
+/* Стилизация option */
+select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* При наведении */
+select option:hover {
+  background-color: #f0f0f0;
+}
+
+/* При выборе */
+select option:checked {
+  background-color: #007bff;
+  color: #fff;
+}

@@ -1,4 +1,4 @@
-<form *ngIf="filteredCategories.length > 0">
+<form class="form-categories" *ngIf="filteredCategories.length > 0">
   <h4>Categories</h4>
   <mat-form-field appearance="fill">
     <mat-label class="label-category">Favorite category</mat-label>
@@ -10,15 +10,22 @@
 
 <div class="container">
   <div class="header-all-products">
-    <h2 *ngIf="showHeader == true">All Products</h2>
-    <input type="text" [(ngModel)]="searchText" (input)="applyFilter()" placeholder="Search products..." class="search-input">
-  </div>
+    <div class="row">
+        <div>
+            <h4 *ngIf="showHeader == true">All Products</h4>
+        </div>
+        <div>
+            <input type="text" [(ngModel)]="searchText" (input)="applyFilter()" placeholder="Search products..." class="form-control">
+        </div>
+    </div>
+</div>
+
 
   <div *ngIf="filteredProducts.length === 0">
     No products available.
   </div>
 
-  <div *ngIf="filteredProducts.length > 0">
+  <div *ngIf="filteredProducts.length > 0" class="table-container-products">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -38,12 +45,12 @@
           <td>{{ product.username }}</td>
           <td>
             <button class="delete-product-btn" (click)="deleteProduct(product.id)">
-              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" alt="">
+              <img class="delete-img" src="assets/img/trash.png" alt="">
             </button>
           </td>
           <td>
             <button class="update-product-btn" (click)="openUpdateDialog(product)">
-              <img class="delete-img" src="https://cdn-icons-png.flaticon.com/128/2546/2546743.png" alt="">
+              <img class="update-img" src="assets/img/refresh.png" alt="">
             </button>
           </td>
         </tr>

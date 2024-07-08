@@ -1,0 +1,37 @@
+<div class="container">
+  <!-- <div class="header-all-products">
+    <h2 *ngIf="showHeader == true">All Products</h2>
+    <input type="text" [(ngModel)]="searchText" (input)="applyFilter()" placeholder="Search products..." class="search-input">
+  </div> -->
+
+  <div *ngIf="categories.length === 0">
+    No products available.
+  </div>
+
+  <div *ngIf="categories.length > 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Code category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.name }}</td>
+          <td>{{ category.categoryCode }}</td>
+          <td>
+            <button class="delete-product-btn" (click)="deleteCategory(category.id)" *ngIf="category.categoryCode != 1110 && category.categoryCode != 1113  && category.categoryCode != 1010">
+              <img class="delete-img" src="assets/img/trash.png" alt="">
+            </button>
+          </td>
+          <td>
+            <button class="update-product-btn"  (click)="openUpdateDialog(category)" *ngIf="category.categoryCode != 1110 && category.categoryCode != 1113  && category.categoryCode != 1010">
+                <img class="update-img" src="assets/img/refresh.png" alt="">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

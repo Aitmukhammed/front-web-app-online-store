@@ -1,0 +1,19 @@
+<div class="overlay"></div>
+<div class="update-product-dialog">
+  <h1 mat-dialog-title>Update Category</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="updatedCategoryData.name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Category code</mat-label>
+      <input matInput type="number" [(ngModel)]="updatedCategoryData.categoryCode">
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="onSaveClick()">Save</button>
+  </div>
+</div>

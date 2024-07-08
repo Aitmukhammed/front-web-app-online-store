@@ -1,0 +1,10 @@
+.delete-product-btn, .update-product-btn {
+  border: none;
+  background: none;
+}
+
+.delete-img, .update-img {
+  width: 45px;
+  height: 45px;
+  background: none;
+}

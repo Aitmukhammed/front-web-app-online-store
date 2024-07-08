@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminAllProductsComponent } from './admin-all-products/admin-all-products.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { AllCategoriesComponent } from './all-categories/all-categories.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
       component: AdminAllProductsComponent
   },
   {
+      path: 'create-category',
+      component: CreateCategoryComponent
+  },
+  {
+      path: 'all-categories',
+      component: AllCategoriesComponent
+  },
+  {
       path: 'auth/login',
       component: LoginComponent
   },
@@ -33,11 +43,8 @@ const routes: Routes = [
       path: 'signup',
       component: RegisterComponent
   },
-  {
-      path: '',
-      redirectTo: 'home',
-      pathMatch: 'full'
-  }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home' } // Добавлено для обработки всех некорректных маршрутов
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    // debugger
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),

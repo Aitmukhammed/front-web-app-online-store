@@ -23,8 +23,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MainHomeComponent } from './main-home/main-home.component';
 import { MatSelectModule } from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { AllCategoriesComponent } from './all-categories/all-categories.component';
+import { UpdateCategoryDialogComponent } from './update-category-dialog/update-category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { MatSelectModule } from '@angular/material/select';
     AddProductDialogComponent,
     AdminAllProductsComponent,
     UpdateProductDialogComponent,
-    MainHomeComponent
+    CreateCategoryComponent,
+    AllCategoriesComponent,
+    UpdateCategoryDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    
+    MatMenuModule
   ],
   providers: [
     provideClientHydration(),

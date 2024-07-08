@@ -13,11 +13,6 @@ import { CategoryDetails } from '../details/category-details.interface';
 import { of } from 'rxjs';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-admin-all-products',
   templateUrl: './admin-all-products.component.html',
@@ -36,12 +31,6 @@ export class AdminAllProductsComponent implements OnInit {
   selectedCar?: string;
 
   showHeader?: boolean = true;
-
-  foods: Food[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
-  ];
 
   constructor(private productService: ProductService, public dialog: MatDialog, private overlayContainer: OverlayContainer) { }
 

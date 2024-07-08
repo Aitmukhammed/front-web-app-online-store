@@ -2,6 +2,7 @@
   "name": "online-store-app",
   "version": "0.0.0",
   "scripts": {
+    "clean": "rmdir /s /q node_modules",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
