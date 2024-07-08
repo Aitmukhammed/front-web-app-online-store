@@ -23,6 +23,11 @@
         <a class="nav-link" routerLink="all-categories">All categories</a>
       </li>
 
+      <li class="nav-link" style="margin-left: 20px;">|</li>
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a class="nav-link" routerLink="images">Images</a>
+      </li>
+
       <li *ngIf="authority === 'pm'" class="nav-item">
         <a class="nav-link" routerLink="pm">PM Board</a>
       </li>

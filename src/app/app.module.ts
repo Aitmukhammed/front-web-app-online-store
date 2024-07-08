@@ -28,6 +28,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { AllCategoriesComponent } from './all-categories/all-categories.component';
 import { UpdateCategoryDialogComponent } from './update-category-dialog/update-category-dialog.component';
+import { AdminImagesComponent } from './admin-images/admin-images.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UpdateCategoryDialogComponent } from './update-category-dialog/update-c
     UpdateProductDialogComponent,
     CreateCategoryComponent,
     AllCategoriesComponent,
-    UpdateCategoryDialogComponent
+    UpdateCategoryDialogComponent,
+    AdminImagesComponent
   ],
   imports: [
     BrowserModule,

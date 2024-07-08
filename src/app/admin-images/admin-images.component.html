@@ -1,0 +1,16 @@
+<section>
+    <button mat-button class="add-img-btn">Add image
+      <span>
+        <img src="assets/img/right-arrow.png" alt="">
+      </span>
+    </button>
+</section>
+
+<div class="images-container">
+  <div class="image-item" *ngFor="let image of images">
+    <img class="banner-admin-img" [src]="image.imgUrl" alt="">
+    <button class="delete-product-btn" (click)="deleteImage(image.id)">
+      <img class="delete-img" src="assets/img/trash.png" alt="">
+    </button>
+  </div>
+</div>
