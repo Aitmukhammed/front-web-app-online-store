@@ -9,6 +9,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminAllProductsComponent } from './admin-all-products/admin-all-products.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { AllCategoriesComponent } from './all-categories/all-categories.component';
+import { AdminImagesComponent } from './admin-images/admin-images.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
       path: 'all-categories',
       component: AllCategoriesComponent
+  },
+  {
+      path: 'images',
+      component: AdminImagesComponent
   },
   {
       path: 'auth/login',
