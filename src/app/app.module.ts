@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,11 +24,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { AllCategoriesComponent } from './all-categories/all-categories.component';
 import { UpdateCategoryDialogComponent } from './update-category-dialog/update-category-dialog.component';
 import { AdminImagesComponent } from './admin-images/admin-images.component';
+import { UpdateImageDialogComponent } from './update-image-dialog/update-image-dialog.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CarouselSliderImagesComponent } from './carousel-slider-images/carousel-slider-images.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,10 @@ import { AdminImagesComponent } from './admin-images/admin-images.component';
     CreateCategoryComponent,
     AllCategoriesComponent,
     UpdateCategoryDialogComponent,
-    AdminImagesComponent
+    AdminImagesComponent,
+    UpdateImageDialogComponent,
+    CarouselSliderImagesComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -60,13 +67,15 @@ import { AdminImagesComponent } from './admin-images/admin-images.component';
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     provideClientHydration(),
     httpInterceptorProviders,
-    TokenStorageService
+    TokenStorageService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
