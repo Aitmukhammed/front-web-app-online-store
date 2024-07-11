@@ -1,16 +1,47 @@
 <section>
-    <button mat-button class="add-img-btn">Add image
+    <button mat-button *ngIf="btnBool === false" (click)="btnBool = !btnBool" class="add-img-btn">Add image
       <span>
         <img src="assets/img/right-arrow.png" alt="">
       </span>
     </button>
+
+    <button mat-button *ngIf="btnBool === true" (click)="toggleButtonAndFetchImages()" class="add-img-btn">All images
+      <span>
+        <img src="assets/img/left-arrow.png" alt="">
+      </span>
+    </button>
 </section>
 
-<div class="images-container">
+<div class="images-container" *ngIf="btnBool === false">
   <div class="image-item" *ngFor="let image of images">
     <img class="banner-admin-img" [src]="image.imgUrl" alt="">
     <button class="delete-product-btn" (click)="deleteImage(image.id)">
       <img class="delete-img" src="assets/img/trash.png" alt="">
     </button>
+    <button class="update-product-btn" (click)="openUpdateDialog(image)">
+      <img class="update-img" src="assets/img/refresh.png" alt="">
+    </button>
   </div>
 </div>
+
+
+<div class="container" *ngIf="btnBool === true">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-5">
+      <form (ngSubmit)="onSubmit(imageForm.value, imageForm)" #imageForm="ngForm" class="p-5 border rounded shadow-lg bg-light" id="product-form">
+
+        <div class="form-group mb-4">
+          <label for="name" class="form-label">Image Url</label>
+          <input type="text" class="form-control form-control-lg" id="imageUrl" name="imgUrl" ngModel required placeholder="Enter image url">
+          <div *ngIf="imageForm.submitted && imageForm.controls['imgUrl']?.invalid" class="text-danger">
+            Image url is required.
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">Submit</button>
+      </form>
+      </div>
+  </div>
+</div>
+
+<app-carousel-slider-images></app-carousel-slider-images>
