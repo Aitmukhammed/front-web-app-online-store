@@ -1,6 +1,7 @@
 <div class="overlay"></div>
-<div class="update-product-dialog">
+  <div class="update-product-dialog">
   <h1 mat-dialog-title>Update Product</h1>
+
   <div mat-dialog-content>
     <mat-form-field>
       <mat-label>Name</mat-label>
@@ -14,22 +15,17 @@
       <mat-label>Picture URL</mat-label>
       <input matInput [(ngModel)]="updatedProductData.pictureUrl">
     </mat-form-field>
-    <!-- <mat-form-field> -->
-      <!-- <mat-label>Category Code</mat-label> -->
-      <!-- <input matInput [(ngModel)]="updatedProductData.category.categoryCode"> -->
 
-
-      <div class="form-group mb-4">
-        <label for="categoryCode" class="form-label">Select a category</label>
-        <select class="form-control form-control-lg" id="categoryCode" name="categoryCode" [(ngModel)]="updatedProductData.category.categoryCode">
-          <option *ngFor="let category of filteredCategories" [value]="category?.categoryCode">
-            {{ category.name }}
-          </option>
-        </select>
-      </div>
-
-    <!-- </mat-form-field> -->
+    <div class="form-group mb-4">
+      <label for="categoryCode" class="form-label">Select a category</label>
+      <select class="form-control form-control-lg" id="categoryCode" name="categoryCode" [(ngModel)]="updatedProductData.category.categoryCode">
+        <option *ngFor="let category of filteredCategories" [value]="category?.categoryCode">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
   </div>
+  
   <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
     <button mat-button (click)="onSaveClick()">Save</button>
