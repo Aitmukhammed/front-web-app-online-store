@@ -12,12 +12,20 @@ export class ImageService {
 
   constructor(private http: HttpClient) { }
 
+  addImage(imageData: any, headers: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/add`, imageData, {headers});
+  }
+
   getAllImages(): Observable<ImageDetails[]> {
     return this.http.get<ImageDetails[]>(`${this.baseUrl}/all`);
   }
 
   deleteImage(imageId: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/delete/${imageId}`);
+  }
+
+  updateImage(imageId: number, updateImageData: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/update/${imageId}`, updateImageData);
   }
 
   // createCatgory(categoryData: any, headers: any): Observable<any> {
